@@ -77,13 +77,9 @@
       </div>
      <div>
        <label>Flat Number</label>
-        <select name="flatNumber" class="form-control">
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-          <option>D</option>
-          <option>E</option>
-          <option>F</option>
+        <select name="flatNumber" class="form-control" *ngFor="number in flatNumbers">
+          <option>{{number}}</option>
+          
         </select>
      </div>
      <div>
