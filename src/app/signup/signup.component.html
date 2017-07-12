@@ -1,0 +1,96 @@
+<div class="row">
+  <div class="col-xs-6">
+    <form class="inline-form" #f="ngForm" ng-submit="signUp()">
+      <div>
+        <label>First Name</label>
+        <input type="text" maxlength="50" name="firstName" class="form-control" ngModel #firstName="ngModel" required/>
+        <p *ngIf="!firstName.valid && firstName.touched">
+            first name required.
+        </p>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input type="text" name="lastName" class="form-control" ngModel #lastName="ngModel" required/>
+          <p *ngIf="!lastName.valid && lastName.touched">
+            last name required.
+          </p>
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" ngModel #email="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+          <p *ngIf="!email.valid && email.touched">
+            email required.
+          </p>
+          <p  *ngIf="email.errors && email.errors.pattern">
+                Invalid EmailId
+          </p>
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" ngModel #password="ngModel" required patter="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+          <p *ngIf="!password.valid && password.touched">
+            password required.
+          </p>
+          <p *ngIf="password.errors && password.errors.pattern">
+            At-least 1 Capital, At-least 1 number, At-least 1 special char
+          </p>
+      </div>
+      <div>
+        <label>Confirm Password</label>
+        <input type="password" name="confirmPassword" class="form-control" ngModel #confirmPassword="ngModel" required/>
+          <p *ngIf="!confirmPassword.valid && confirmPassword.touched">
+            Confirm password required.
+          </p>
+          <p *ngIf="confirmPassword !== password && !confirmPassword.valid"> Password doesn't match</p>
+      </div>
+      <div>
+        <label>Mobile</label>
+        <input type="text" name="mobile" class="form-control" ngModel #mobile="ngModel" required pattern="/^[0-9]{10,10}$/;" />
+          <p *ngIf="!mobile.valid && mobile.touched">
+            Mobile required.
+          </p>
+          <p *ngIf="mobile.errors && mobile.errors.pattern">
+            Invalid Mobile.
+          </p>
+      </div>
+      <div>
+        <label>Flat Purchase Date</label>
+         <input type="date" name="flatePurchaseDate" class="form-control"/>
+      </div>
+      <div>
+        <label>Profile Pic</label>
+        <input type="file" name="profilePic" class="form-control"/>
+      </div>
+      <div>
+        <label>Flat Block</label>
+        <select name="flatBlock" class="form-control">
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+          <option>E</option>
+          <option>F</option>
+        </select>
+      </div>
+     <div>
+       <label>Flat Number</label>
+        <select name="flatNumber" class="form-control">
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+          <option>E</option>
+          <option>F</option>
+        </select>
+     </div>
+     <div>
+        <label>Terms And Condition</label>
+        <input type="checkbox" name=termsAndCondition class="form-control"/>
+     </div>
+     <div>
+       <button type="submit">SignUp</button>
+     </div>
+      
+    </form>
+  </div>
+</div>
