@@ -22,4 +22,13 @@ export class LoginService {
     return Observable.throw(body);
   }
 
+  signUp(obj){
+    return this.http.post(this.host+"/auth/signup",obj).map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  forgetPassword(obj){
+    return this.http.post(this.host+"/auth/forgot",obj).map(res => res.json())
+      .catch(this.handleError);
+  }
 }

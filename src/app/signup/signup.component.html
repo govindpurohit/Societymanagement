@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-xs-6">
     <form class="inline-form" #f="ngForm" ng-submit="signUp()">
+      <div class="error"  *ngIf="hasError">
+        <p>{{errorMessage}}</p>
+      </div>
       <div>
         <label>First Name</label>
         <input type="text" maxlength="50" name="firstName" class="form-control" ngModel #firstName="ngModel" required/>
@@ -41,7 +44,7 @@
           <p *ngIf="!confirmPassword.valid && confirmPassword.touched">
             Confirm password required.
           </p>
-          <p *ngIf="confirmPassword !== password && !confirmPassword.valid"> Password doesn't match</p>
+          <p *ngIf="confirmPassword != password && confirmPassword.touched"> Password doesn't match</p>
       </div>
       <div>
         <label>Mobile</label>
